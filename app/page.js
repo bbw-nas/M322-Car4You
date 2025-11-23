@@ -1,6 +1,7 @@
 // app/page.js
 'use client'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 
 export default function Home() {
     const router = useRouter()
@@ -39,21 +40,6 @@ export default function Home() {
                         letterSpacing: '2px'
                     }}>CAR4YOU</h1>
                 </div>
-
-                <div style={{
-                    width: '250px',
-                    height: '150px',
-                    background: '#f0f0f0',
-                    borderRadius: '15px',
-                    margin: '0 auto 30px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: '#999'
-                }}>
-                    [Car Image]
-                </div>
-
                 <h2 style={{
                     fontSize: '20px',
                     fontWeight: '600',
@@ -68,7 +54,14 @@ export default function Home() {
                 }}>
                     WE GOT THE PERFECT CAR FOR <span style={{ color: '#6B46C1', fontWeight: '600' }}>YOU</span>
                 </p>
-
+                <div style={{ position: 'relative', width: '100%', maxWidth: '600px', aspectRatio: '2 / 1' }}>
+                    <Image
+                        src="/car.png"
+                        alt="Car image"
+                        fill
+                        style={{ objectFit: 'contain' }}
+                    />
+                </div>
                 <button
                     onClick={() => router.push('/booking')}
                     style={{

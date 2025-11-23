@@ -5,6 +5,14 @@ import { useRouter } from 'next/navigation'
 import PhoneInput from '../components/PhoneInput'
 import DateTimePicker from '../components/DateTimePicker'
 import { validateBookingForm } from '../lib/validation'
+import { countryCodes } from '../utils/countryCodes'
+
+
+const countryOptions = countryCodes.map(c => ({
+    value: c.code,
+    label: `${c.country} (${c.code})`
+}))
+
 
 
 export default function Booking() {
@@ -33,12 +41,17 @@ export default function Booking() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        console.log("Submitting...")
         const newErrors = validateBookingForm(formData)
 
-        if (Object.keys(newErrors).length > 0) {
-            setErrors(newErrors)
-            return
-        }
+        console.log("Errors:", newErrors)
+// inside handleSubmit
+
+// instead of: if (Object.keys(newErrors).length > 0) { ... }
+// you can also force errors to always include every field
+        setErrors(newErrors)
+        if (Object.keys(newErrors).length > 0) return
+
 
         sessionStorage.setItem('bookingData', JSON.stringify(formData))
         router.push('/vehicle')
@@ -163,13 +176,18 @@ export default function Booking() {
                     </div>
 
                     <div style={{ marginBottom: '20px' }}>
-                        <PhoneInput
-                            countryCode={formData.phoneCountry}
-                            phoneNumber={formData.phoneNumber}
-                            onCountryChange={handleChange}
-                            onPhoneChange={handleChange}
-                            error={errors.phoneNumber}
-                        />
+                        <div style={{ marginBottom: '20px' }}>
+                            <PhoneInput
+                                countryCode={formData.phoneCountry}
+                                phoneNumber={formData.phoneNumber}
+                                onCountryChange={handleChange}
+                                onPhoneChange={handleChange}
+                                options={countryOptions}
+                                error={errors.phoneNumber}
+                            />
+                        </div>
+
+
                     </div>
 
                     <div style={{ marginBottom: '20px' }}>
@@ -199,7 +217,7 @@ export default function Booking() {
                         />
                     </div>
 
-                    <button type="submit" style={{
+                    <button type="submit"style={{
                         background: '#6B46C1',
                         color: 'white',
                         border: 'none',

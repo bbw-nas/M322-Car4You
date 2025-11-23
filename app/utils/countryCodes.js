@@ -1,6 +1,7 @@
 // utils/countryCodes.js
 
 export const countryCodes = [
+    { country: 'Switzerland', code: '+41' },
     { country: 'United States', code: '+1' },
     { country: 'United Kingdom', code: '+44' },
     { country: 'Canada', code: '+1' },
@@ -11,7 +12,6 @@ export const countryCodes = [
     { country: 'Spain', code: '+34' },
     { country: 'Netherlands', code: '+31' },
     { country: 'Belgium', code: '+32' },
-    { country: 'Switzerland', code: '+41' },
     { country: 'Austria', code: '+43' },
     { country: 'Poland', code: '+48' },
     { country: 'Sweden', code: '+46' },

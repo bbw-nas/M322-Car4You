@@ -281,7 +281,7 @@ export default function Vehicle() {
 
                     <div style={{ marginBottom: '25px' }}>
                         <Dropdown
-                            label="Top priority"
+                            label="Top priority - optional"
                             name="topPriority"
                             options={priorityOptions}
                             value={formData.topPriority}
@@ -291,7 +291,7 @@ export default function Vehicle() {
                     </div>
 
                     <div style={{ marginBottom: '30px' }}>
-                        <label style={labelStyle}>Remarks</label>
+                        <label style={labelStyle}>Remarks - optional</label>
                         <textarea
                             name="remarks"
                             placeholder="Add any special requests or comments..."

@@ -63,6 +63,13 @@ a {
     border-radius: 4px;
 }
 
+.fixed-dropdown {
+    height: 40px;        /* visible height of select */
+    max-height: 160px;   /* limits dropdown when open */
+    overflow-y: auto;    /* makes options scrollable if too long */
+}
+
+
 ::-webkit-scrollbar-thumb:hover {
     background: #5a38a3;
 }
