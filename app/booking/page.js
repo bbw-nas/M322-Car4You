@@ -217,7 +217,7 @@ export default function Booking() {
                         />
                     </div>
 
-                    <button type="submit"style={{
+                    <button type="submit" style={{
                         background: '#6B46C1',
                         color: 'white',
                         border: 'none',
