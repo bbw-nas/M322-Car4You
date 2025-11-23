@@ -1,65 +1,94 @@
-import Image from "next/image";
+// app/page.js
+'use client'
+import { useRouter } from 'next/navigation'
 
 export default function Home() {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    const router = useRouter()
+
+    return (
+        <div style={{
+            minHeight: '100vh',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '20px',
+            background: 'linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%)'
+        }}>
+            <div style={{
+                maxWidth: '400px',
+                width: '100%',
+                background: 'white',
+                borderRadius: '20px',
+                padding: '40px 30px',
+                boxShadow: '0 10px 40px rgba(0,0,0,0.1)',
+                textAlign: 'center'
+            }}>
+                <div style={{
+                    border: '3px solid #6B46C1',
+                    borderRadius: '50px',
+                    padding: '12px 40px',
+                    display: 'inline-block',
+                    marginBottom: '40px'
+                }}>
+                    <h1 style={{
+                        fontSize: '28px',
+                        color: '#6B46C1',
+                        margin: 0,
+                        fontWeight: '600',
+                        letterSpacing: '2px'
+                    }}>CAR4YOU</h1>
+                </div>
+
+                <div style={{
+                    width: '250px',
+                    height: '150px',
+                    background: '#f0f0f0',
+                    borderRadius: '15px',
+                    margin: '0 auto 30px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#999'
+                }}>
+                    [Car Image]
+                </div>
+
+                <h2 style={{
+                    fontSize: '20px',
+                    fontWeight: '600',
+                    margin: '0 0 10px 0',
+                    color: '#333'
+                }}>NEED A CAR?</h2>
+
+                <p style={{
+                    fontSize: '16px',
+                    margin: '0 0 40px 0',
+                    color: '#666'
+                }}>
+                    WE GOT THE PERFECT CAR FOR <span style={{ color: '#6B46C1', fontWeight: '600' }}>YOU</span>
+                </p>
+
+                <button
+                    onClick={() => router.push('/booking')}
+                    style={{
+                        background: '#6B46C1',
+                        color: 'white',
+                        border: 'none',
+                        borderRadius: '50px',
+                        padding: '15px 50px',
+                        fontSize: '16px',
+                        fontWeight: '600',
+                        cursor: 'pointer',
+                        width: '100%',
+                        transition: 'background 0.3s ease'
+                    }}
+                    onMouseOver={(e) => e.currentTarget.style.background = '#5a38a3'}
+                    onMouseOut={(e) => e.currentTarget.style.background = '#6B46C1'}
+                >
+                    BOOK NOW
+                </button>
+            </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+    )
 }
