@@ -25,7 +25,7 @@ export default function DateTimePicker({
     for (let h = businessHoursStart; h <= businessHoursEnd; h++) {
         hours.push(String(h).padStart(2, "0"))
     }
-    const minutes = ["15", "30", "45"]
+    const minutes = ["00", "15", "30", "45"]
 
     // Sync props changes
     useEffect(() => {
@@ -79,7 +79,7 @@ export default function DateTimePicker({
                     onChange={(e) => handleTimeChange(e.target.value, minute)}
                     style={{ padding: "8px", borderRadius: "8px", border: "1px solid #ccc" }}
                 >
-                    <option value="00">00</option>
+                    <option value="00" hidden >00</option>
                     {hours.map((h) => (
                         <option key={h} value={h}>{h}</option>
                     ))}
@@ -91,7 +91,7 @@ export default function DateTimePicker({
                     onChange={(e) => handleTimeChange(hour, e.target.value)}
                     style={{ padding: "8px", borderRadius: "8px", border: "1px solid #ccc" }}
                 >
-                    <option value="00">00</option>
+                    <option value="00" hidden>00</option>
                     {minutes.map((m) => (
                         <option key={m} value={m}>{m}</option>
                     ))}

@@ -61,7 +61,7 @@ export const validateBookingForm = (formData) => {
     // Pickup date & time
     const pickupErrors = []
     if (!formData.pickupDate) pickupErrors.push("Pick-up date is required")
-    if (!formData.pickupTime) pickupErrors.push("Pick-up time is required")
+    // if (!formData.pickupTime) pickupErrors.push("Pick-up time is required")
     else if (!validatePickupDate(formData.pickupDate, formData.pickupTime))
         pickupErrors.push("Pick-up must be today or later")
     if (pickupErrors.length > 0) errors.pickup = pickupErrors.join(", ")
