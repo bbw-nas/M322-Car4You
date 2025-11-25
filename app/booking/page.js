@@ -21,7 +21,7 @@ export default function Booking() {
         firstName: '',
         lastName: '',
         email: '',
-        phoneCountry: '+1',
+        phoneCountry: '+41',
         phoneNumber: '',
         pickupDate: '',
         pickupTime: '',
