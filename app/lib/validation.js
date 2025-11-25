@@ -10,17 +10,21 @@ export const validatePhone = (phone) => /^[0-9\s]+$/.test(phone)
 export const validatePickupDate = (pickupDate, pickupTime) => {
     if (!pickupDate) return false
     const now = new Date()
+    // Default pickupTime to "00:00" if empty
     const pickup = new Date(`${pickupDate}T${pickupTime || '00:00'}`)
     return pickup >= now
 }
 
+
 // Return date must be after pickup date
 export const validateReturnDate = (pickupDate, pickupTime, returnDate, returnTime) => {
-    if (!pickupDate || !pickupTime || !returnDate || !returnTime) return false
-    const pickup = new Date(`${pickupDate}T${pickupTime}`)
+    if (!pickupDate || !returnDate || !returnTime) return false
+    // Default pickupTime to "00:00" if empty
+    const pickup = new Date(`${pickupDate}T${pickupTime || '00:00'}`)
     const ret = new Date(`${returnDate}T${returnTime}`)
     return ret > pickup
 }
+
 
 // Booking form validator
 export const validateBookingForm = (formData) => {
